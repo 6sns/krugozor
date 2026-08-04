@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KRUGOZOR GROUP — креативное агентство полного цикла</title>
+<meta name="description" content="KRUGOZOR GROUP создаёт и реализует проекты в сфере креативной экономики: аналитика, брендинг, спецпроекты 360, PR/GR, инфлюенс-маркетинг, продюсирование.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="krugozor_navy.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="KRUGOZOR GROUP — креативное агентство полного цикла">
+<meta property="og:description" content="Создаём и реализуем проекты в сфере креативной экономики.">
+<meta property="og:image" content="krugozor_navy.png">
+<meta property="og:locale" content="ru_RU">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,200;0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+:root{
+  --base:#ffffff;
+  --ink:#283a46;          /* primary text */
+  --muted:#445a6a;        /* secondary text */
+  --faint:#869aa8;        /* tertiary / captions */
+  --hairline:#dfe0e4;     /* borders, dividers */
+  --fog:#dfe0e4;          /* quiet surface */
+  --accent:#869aa8;       /* single accent */
+  --grad:linear-gradient(160deg,#ffffff 0%,#dfe0e4 100%);
+  --r:8px;
+  --maxw:1280px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter Tight",system-ui,Arial,sans-serif;background:var(--base);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:clip;font-size:15px;line-height:1.5}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,64px)}
+.section{position:relative;padding-block:clamp(48px,6vw,88px);scroll-margin-top:80px}
+.eyebrow{display:inline-block;font-size:12px;font-weight:500;letter-spacing:.02em;color:var(--faint);margin-bottom:18px}
+.h2{font-weight:300;letter-spacing:-.02em;line-height:1.05;font-size:clamp(32px,6vw,58px);color:var(--ink)}
+
+/* ── HEADER ── */
+.hdr{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px clamp(20px,5vw,64px);
+  transition:background .5s var(--ease),border-color .5s var(--ease),padding .5s var(--ease);
+  border-bottom:1px solid transparent;
+}
+.hdr__logo{position:relative;height:20px;width:auto}
+.hdr__logo img{height:20px;width:auto;transition:opacity .5s var(--ease)}
+.hdr__logo .black{position:absolute;inset:0;opacity:0}
+.hdr nav{display:flex;gap:clamp(16px,2.4vw,36px)}
+.hdr nav a{font-size:15px;font-weight:400;text-transform:none;color:#fff;opacity:.85;transition:opacity .4s,color .4s}
+.hdr nav a:hover{opacity:1}
+/* scrolled state → white bar, dark text */
+.hdr.solid{background:var(--base);border-bottom-color:var(--hairline)}
+.hdr.solid .hdr__logo .white{opacity:0}
+.hdr.solid .hdr__logo .black{opacity:1}
+.hdr.solid nav a{color:var(--ink);opacity:.7}
+.hdr.solid nav a:hover{color:var(--accent);opacity:1}
+@media(max-width:640px){.hdr nav{gap:14px}.hdr nav a{font-size:13px}}
+
+/* ── HERO ── */
+.hero{position:relative;min-height:100svh;display:flex;overflow:hidden;background:#283a46}
+.hero__media{position:absolute;inset:0;z-index:0}
+.hero__media video{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.03) saturate(.92)}
+.hero__media img{width:100%;height:100%;object-fit:cover;display:block}
+.hero__scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,transparent 48%,rgba(40,58,70,.62) 100%)}
+.hero__inner{position:relative;z-index:5;margin-top:auto;width:100%;
+  padding:0 clamp(20px,5vw,64px) clamp(48px,7vw,92px);
+  display:flex;flex-direction:column;align-items:flex-start;gap:12px;
+  opacity:0;transform:translateY(18px);animation:fadeUp 1s .15s var(--ease) forwards}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.hero__logo{width:min(62vw,620px);height:auto}
+.hero__desc{color:rgba(255,255,255,.85);font-weight:300;font-size:clamp(20px,2.2vw,28px);max-width:28ch;line-height:1.3}
+@media(max-width:560px){.hero__logo{width:min(82vw,360px)}}
+
+/* ── MARQUEE (logos) ── */
+.marquee{background:var(--base);border-block:1px solid var(--hairline);padding-block:34px;overflow:hidden}
+.marquee__mask{position:relative;-webkit-mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(to right,transparent,#000 12%,#000 88%,transparent)}
+.marquee__track{display:flex;gap:clamp(40px,6vw,88px);width:max-content;animation:slide 34s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__item{font-weight:500;font-size:clamp(16px,2vw,24px);letter-spacing:.02em;color:#869aa8;white-space:nowrap;transition:color .4s}
+.marquee__item:hover{color:#283a46}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee__track{animation:none}}
+
+/* ── НАПРАВЛЕНИЯ (tiles) ── */
+.dir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(36px,4vw,56px)}
+@media(max-width:900px){.dir-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.dir-grid{grid-template-columns:1fr}}
+.tile{
+  position:relative;background:var(--base);border:1px solid var(--hairline);border-radius:var(--r);
+  padding:26px 24px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;
+  transition:border-color .5s var(--ease),background .5s var(--ease),transform .5s var(--ease);
+  overflow:hidden;
+}
+.tile::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.tile:hover{border-color:#869aa8;background:var(--fog);transform:translateY(-3px)}
+.tile:hover::after{transform:scaleX(1)}
+.tile__n{font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--faint)}
+.tile__t{font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.3;color:var(--ink)}
+.tile__s{margin-top:8px;font-size:15px;font-weight:400;color:var(--muted);line-height:1.5}
+
+/* ── ЦИФРЫ (metrics) ── */
+#metrics{background:var(--base)}
+.km__intro{margin-bottom:clamp(64px,8vw,104px)}
+.km__row{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px)}
+.km__item{border-top:1px solid var(--hairline);padding-top:22px}
+.km__num{font-weight:400;font-size:clamp(28px,3.4vw,42px);line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+.km__cap{margin-top:14px;font-size:14px;font-weight:400;color:var(--muted);line-height:1.5}
+.km__cap b{display:block;margin-top:9px;font-weight:500;font-size:12px;letter-spacing:.04em;color:var(--faint)}
+@media(max-width:760px){.km__row{grid-template-columns:repeat(2,1fr);gap:28px 24px}}
+@media(max-width:440px){.km__row{grid-template-columns:1fr}}
+
+/* ── КЕЙСЫ (feed) ── */
+.cases-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.tabs{display:flex;gap:clamp(16px,2vw,28px);flex-wrap:wrap}
+.tab{
+  padding:0 0 3px;border:none;border-bottom:2px solid transparent;background:none;
+  font-size:15px;font-weight:400;letter-spacing:normal;color:var(--muted);cursor:pointer;
+  transition:color .4s,border-color .4s;
+}
+.tab:hover{color:var(--ink)}
+.tab.active{color:var(--ink);border-bottom-color:var(--ink)}
+/* moving feed (Oker-style) */
+.feed-viewport{position:relative;margin-top:clamp(28px,3vw,44px);overflow:hidden;padding-inline-start:clamp(20px,5vw,64px);cursor:grab;
+  -webkit-mask-image:linear-gradient(to right,#000 0,#000 90%,transparent 100%);mask-image:linear-gradient(to right,#000 0,#000 90%,transparent 100%)}
+.feed-viewport.dragging{cursor:grabbing}
+.feed-track{display:flex;gap:18px;width:max-content;will-change:transform}
+.case{flex:0 0 auto;display:block;width:clamp(280px,30vw,392px);user-select:none}
+.case__img{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;
+  background:#dfe0e4 center/cover no-repeat;border:1px solid var(--hairline)}
+.case__img::after{content:"";position:absolute;inset:0;background:rgba(40,58,70,0);transition:background .5s var(--ease)}
+.case:hover .case__img::after{background:rgba(40,58,70,.10)}
+.case__cap{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:14px 2px 0}
+.case__meta{min-width:0}
+.case__arrow{flex:none;color:var(--ink);display:inline-flex;align-items:center;padding-top:7px;transition:transform .35s var(--ease),color .35s var(--ease)}
+.case__arrow:hover{transform:translateX(5px);color:var(--accent)}
+.case__t{font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.3;color:var(--ink);
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.case__cat{margin-top:7px;font-size:13px;font-weight:400;letter-spacing:normal;color:var(--faint)}
+/* ── КЕЙСЫ (плитки) ── */
+.casegrid-head{margin-bottom:clamp(28px,3vw,44px)}
+.feed-note{margin-top:20px;font-size:12px;color:var(--faint);line-height:1.45;max-width:70ch}
+.fn{font-size:.7em;vertical-align:super;color:var(--faint);margin-left:1px}
+.casegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,64px) clamp(20px,3vw,40px)}
+@media(max-width:640px){.casegrid{grid-template-columns:1fr}}
+.gcell{display:block}
+.gcell__img{aspect-ratio:4/3;border-radius:var(--r);overflow:hidden;background:#dfe0e4 center/cover no-repeat;border:1px solid var(--hairline);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.gcell:hover .gcell__img{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(40,58,70,.4)}
+.gcell__cap{display:flex;justify-content:space-between;gap:24px;margin-top:16px}
+.gcell__t{font-weight:400;font-size:clamp(17px,1.6vw,20px);line-height:1.3;color:var(--ink);max-width:24ch}
+.gcell__cat{font-size:13px;color:var(--faint);text-align:right;white-space:nowrap}
+@media(max-width:480px){.gcell__cap{flex-direction:column;gap:6px}.gcell__cat{text-align:left}}
+/* ── ЛЮДИ ── */
+.people{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(16px,2vw,26px);margin-top:clamp(36px,4vw,56px)}
+@media(max-width:900px){.people{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.people{grid-template-columns:repeat(2,1fr)}}
+.person__ph{aspect-ratio:3/4;border-radius:var(--r);overflow:hidden;background:#dfe0e4}
+.person__ph img{width:100%;height:100%;object-fit:cover}
+.person__n{margin-top:14px;font-size:clamp(16px,1.4vw,18px);color:var(--ink)}
+.person__r{margin-top:6px;font-size:13px;color:var(--muted);line-height:1.4}
+
+/* ── FOOTER ── */
+.footer{background:var(--base);padding:clamp(56px,7vw,96px) 0 clamp(28px,3.5vw,48px)}
+.footer__grid{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;align-items:flex-start}
+.footer__logo{width:min(52vw,280px);height:auto}
+.footer__tag{margin-top:18px;color:var(--muted);font-weight:400;font-size:15px;max-width:34ch;line-height:1.5}
+.footer__col{display:flex;flex-direction:column;gap:14px}
+.footer__lab{font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--faint);margin-bottom:4px}
+.footer__col a{font-size:15px;font-weight:400;color:var(--ink);transition:color .4s}
+.footer__col a:hover{color:var(--accent)}
+.footer__base{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-top:clamp(20px,3vw,32px);padding-top:20px;border-top:1px solid var(--hairline);color:var(--faint);font-size:12px;font-weight:500;letter-spacing:.04em}
+@media(max-width:680px){.footer__grid{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
+
+/* ===== DARK FOOTER (palette) ===== */
+.footer{background:#283a46}
+.footer__logo{filter:brightness(0) invert(1)}
+.footer__tag{color:rgba(255,255,255,.72)}
+.footer__lab{color:rgba(255,255,255,.55)}
+.footer__col a{color:#ffffff}
+.footer__col a:hover{color:#869aa8}
+.feed-note{color:rgba(255,255,255,.5)}
+.footer__base{border-top-color:rgba(255,255,255,.2);color:rgba(255,255,255,.55)}
+</style>
+</head>
+<body>
+
+<h1 class="sr-only">KRUGOZOR GROUP — креативное агентство полного цикла в сфере креативной экономики</h1>
+
+<!-- HEADER -->
+<header class="hdr" id="hdr">
+  <a class="hdr__logo" href="#home" aria-label="KRUGOZOR GROUP">
+    <img class="white" src="krugozor_logo_white.png" alt="KRUGOZOR">
+    <img class="black" src="krugozor_navy.png" alt="">
+  </a>
+  <nav aria-label="Основная навигация">
+    <a href="#napravleniya">Направления</a>
+    <a href="#projects">Проекты</a>
+    <a href="#cases">Кейсы</a>
+    <a href="#people">Люди</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__media">
+    <video autoplay muted loop playsinline>
+      <source src="video/golden_mountain.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__inner">
+    <img class="hero__logo" src="krugozor_logo_white.png" alt="KRUGOZOR GROUP">
+    <p class="hero__desc">Создаём и реализуем проекты в сфере креативной экономики</p>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-label="Клиенты и партнёры">
+  <div class="marquee__mask">
+    <div class="marquee__track" id="mtrack">
+      <!-- track duplicated in JS for seamless loop -->
+      <span class="marquee__item">RUSSPASS</span>
+      <span class="marquee__item">Кавказ.РФ</span>
+      <span class="marquee__item">Т‑Банк</span>
+      <span class="marquee__item">Мрия</span>
+      <span class="marquee__item">WINEPARK</span>
+      <span class="marquee__item">Дримвуд</span>
+      <span class="marquee__item">Открой свою Россию</span>
+      <span class="marquee__item">Российская креативная неделя</span>
+    </div>
+  </div>
+</div>
+
+<!-- НАПРАВЛЕНИЯ -->
+<section class="section" id="napravleniya">
+  <div class="wrap">
+    <h2 class="h2">Профессиональные направления</h2>
+    <div class="dir-grid">
+      <article class="tile"><div class="tile__n">01</div><div><div class="tile__t">Аналитика и исследования</div></div></article>
+      <article class="tile"><div class="tile__n">02</div><div><div class="tile__t">Создание и продвижение брендов</div></div></article>
+      <article class="tile"><div class="tile__n">03</div><div><div class="tile__t">Специальные проекты 360</div><div class="tile__s">события и фестивали, застройка</div></div></article>
+      <article class="tile"><div class="tile__n">04</div><div><div class="tile__t">PR / GR и стратегические коммуникации</div></div></article>
+      <article class="tile"><div class="tile__n">05</div><div><div class="tile__t">SMM и influence‑маркетинг, цифровая реклама</div></div></article>
+      <article class="tile"><div class="tile__n">06</div><div><div class="tile__t">Продюсерский центр</div><div class="tile__s">артисты, музыка, инфлюенсеры</div></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- СВОИ ПРОЕКТЫ -->
+<section class="section" id="projects">
+  <div class="wrap cases-head">
+    <div><h2 class="h2">Свои проекты</h2></div>
+  </div>
+  <div class="feed-viewport" id="viewport">
+    <div class="feed-track" id="feed"></div>
+  </div>
+</section>
+
+<!-- КЕЙСЫ (плитки) -->
+<section class="section" id="cases">
+  <div class="wrap">
+    <div class="cases-head casegrid-head">
+      <div><h2 class="h2">Кейсы</h2></div>
+      <div class="tabs" id="tabs">
+        <button class="tab active" data-cat="all">Все</button>
+        <button class="tab" data-cat="design">Дизайн / Контент</button>
+        <button class="tab" data-cat="web">WEB / Инфлюенс</button>
+        <button class="tab" data-cat="events">События</button>
+        <button class="tab" data-cat="pr">PR / GR</button>
+      </div>
+    </div>
+    <div class="casegrid" id="casegrid"></div>
+  </div>
+</section>
+
+<!-- ЛЮДИ -->
+<section class="section" id="people">
+  <div class="wrap">
+    <h2 class="h2">Люди</h2>
+    <div class="people">
+      <figure class="person"><div class="person__ph"><img src="people/1.jpg" alt="Мотин Владимир"></div><figcaption><div class="person__n">Мотин Владимир</div><div class="person__r">Аналитика, цифровой маркетинг, основатель RE:source</div></figcaption></figure>
+      <figure class="person"><div class="person__ph"><img src="people/2.jpg" alt="Евгений Кононов"></div><figcaption><div class="person__n">Евгений Кононов</div><div class="person__r">Событийный маркетинг, креатив, застройка. Основатель 32may</div></figcaption></figure>
+      <figure class="person"><div class="person__ph"><img src="people/3.jpg" alt="Андрей Сагин"></div><figcaption><div class="person__n">Андрей Сагин</div><div class="person__r">Стратегии, брендинг, концепции. Основатель бюро 6 Sns</div></figcaption></figure>
+      <figure class="person"><div class="person__ph"><img src="people/4.jpg" alt="Алексей Изотов"></div><figcaption><div class="person__n">Алексей Изотов</div><div class="person__r">Фестиваль Odyssey, музыкальный продюсер</div></figcaption></figure>
+      <figure class="person"><div class="person__ph"><img src="people/5.jpg" alt="Анна Махова"></div><figcaption><div class="person__n">Анна Махова</div><div class="person__r">Операционный директор, основатель бренда одежды Anemoя</div></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contacts">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <img class="footer__logo" src="krugozor_navy.png" alt="KRUGOZOR GROUP">
+        <p class="footer__tag">Создаём и реализуем проекты в сфере креативной экономики</p>
+      </div>
+      <div class="footer__col">
+        <div>
+          <div class="footer__lab">Телефон</div>
+          <a href="tel:+79100010000">+7 910 001 00 00</a>
+          <a href="tel:+74950950994">+7 495 095 09 94</a>
+        </div>
+        <div>
+          <div class="footer__lab">E‑mail</div>
+          <a href="mailto:sagin@krugozor-group.ru">sagin@krugozor-group.ru</a>
+        </div>
+      </div>
+    </div>
+    <p class="feed-note">* Instagram принадлежит компании Meta, признанной в РФ экстремистской организацией и запрещённой на территории РФ.</p>
+    <div class="footer__base">
+      <span>© 2026 Krugozor Group</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ── header solid on scroll ── */
+  var hdr=document.getElementById('hdr');
+  var hero=document.getElementById('home');
+  if('IntersectionObserver' in window && hero){
+    new IntersectionObserver(function(es){
+      hdr.classList.toggle('solid',!es[0].isIntersecting);
+    },{rootMargin:'-70% 0px 0px 0px'}).observe(hero);
+  }
+
+  /* ── marquee: duplicate track for seamless loop ── */
+  var track=document.getElementById('mtrack');
+  if(track){track.innerHTML+=track.innerHTML;}
+
+  /* ── свои проекты (лента) ── */
+  var OWN=[
+    {img:'own/1.jpg',t:'Одиссея',s:'Музыкальный фестиваль',u:'https://odyfest.com/'},
+    {img:'own/2.jpg',t:'Пора в гости',s:'Гастро-проект',u:'https://www.instagram.com/poravgosti24?igsh=MWh5djM1YTc5dGpnaA%3D%3D&utm_source=qr',note:true},
+    {img:'own/3.jpg',t:'Анемоя',s:'Бренд одежды',u:'https://anemoia.ru/'},
+    {img:'own/4.jpg',t:'Туристократ',s:'Медиа-проект',u:'https://docs.google.com/presentation/d/136RHcw1H_cgdb7M5UGlMQBbKuoWYs7jmClwvNh1xGU4/edit?slide=id.p1#slide=id.p1'}
+  ];
+  /* ── все кейсы (плитки) ── */
+  var CASES=[
+    // design
+    {c:'design',cl:'Дизайн / Контент',img:'img_hq/1.jpg',t:'Всероссийский проект «Открой свою Россию»'},
+    {c:'design',cl:'Дизайн / Контент',img:'img_hq/2.jpg',t:'Гайды для путешествий'},
+    {c:'design',cl:'Дизайн / Контент',img:'img_hq/3.jpg',t:'Москва как привлекательное туристическое направление'},
+    {c:'design',cl:'Дизайн / Контент',img:'img_hq/4.jpg',t:'Креативные концепции для рекламной кампании «RUSSPASS»'},
+    {c:'design',cl:'Дизайн / Контент',img:'img_hq/5.jpg',t:'Разработка логотипа'},
+    {c:'design',cl:'Дизайн / Контент',img:'img_hq/6.jpg',t:'Лето побед'},
+    // web
+    {c:'web',cl:'WEB / Инфлюенс',img:'img_hq/7.jpg',t:'Посевы в соцсетях для Т‑Банка'},
+    {c:'web',cl:'WEB / Инфлюенс',img:'img_hq/8.jpg',t:'Ребрендинг и разработка сайта'},
+    {c:'web',cl:'WEB / Инфлюенс',img:'img_hq/9.jpg',t:'Обновление стратегии инфлюенс‑отдела на данных об интеграциях конкурентов'},
+    {c:'web',cl:'WEB / Инфлюенс',img:'img_hq/10.jpg',t:'Исследование локаций для digital‑кочевников'},
+    {c:'web',cl:'WEB / Инфлюенс',img:'img_hq/11.jpg',t:'Разработка сайта'},
+    {c:'web',cl:'WEB / Инфлюенс',img:'img_hq/12.jpg',t:'Сайт для одного из самых дорогих жилых комплексов напротив Кремля'},
+    // events
+    {c:'events',cl:'События',img:'img_hq/13.jpg',t:'Высокогорный фестиваль Кавказ.рф'},
+    {c:'events',cl:'События',img:'img_hq/14.jpg',t:'Самый большой хакатон в мире. Книга рекордов Гиннесса'},
+    {c:'events',cl:'События',img:'img_hq/15.jpg',t:'Презентация журнала «Алло Мам»'},
+    {c:'events',cl:'События',img:'img_hq/16.jpg',t:'Проект «Марафон идей»'},
+    {c:'events',cl:'События',img:'img_hq/17.jpg',t:'Российская креативная неделя'},
+    {c:'events',cl:'События',img:'img_hq/18.jpg',t:'Молодёжный форум по развитию интернета'},
+    // pr
+    {c:'pr',cl:'PR / GR',img:'img_hq/19.jpg',t:'Развитие Республики Крым'},
+    {c:'pr',cl:'PR / GR',img:'img_hq/20.jpg',t:'Курорт премиум‑класса Мрия'},
+    {c:'pr',cl:'PR / GR',img:'img_hq/21.jpg',t:'Центр винного туризма WINEPARK'},
+    {c:'pr',cl:'PR / GR',img:'img_hq/22.jpg',t:'Тематический парк Дримвуд'},
+    {c:'pr',cl:'PR / GR',img:'img_hq/23.jpg',t:'Японский сад «Шесть чувств»'},
+    {c:'pr',cl:'PR / GR',img:'img_hq/24.jpg',t:'Медицинский центр MLI'}
+  ];
+
+  /* ── moving feed of own projects ── */
+  var vp=document.getElementById('viewport');
+  var track=document.getElementById('feed');
+  var offset=0, single=0, count=0, paused=false, dragging=false, moved=false, startX=0, startOff=0;
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var SPEED=0.55;
+  function ownCard(k){
+    var arrow=k.u?'<a class="case__arrow" href="'+k.u+'" target="_blank" rel="noopener noreferrer" aria-label="Открыть проект">'+
+      '<svg width="42" height="14" viewBox="0 0 42 14" fill="none" aria-hidden="true"><path d="M0 7h38M32 1.5 38.5 7 32 12.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></a>':'';
+    return '<div class="case"><div class="case__img" style="background-image:url(\''+k.img+'\')"></div>'+
+      '<div class="case__cap"><div class="case__meta"><div class="case__t">'+k.t+(k.note?'<sup class="fn">*</sup>':'')+'</div><div class="case__cat">'+k.s+'</div></div>'+arrow+'</div></div>';
+  }
+  function buildFeed(){
+    var base=OWN.concat(OWN);
+    count=base.length;
+    var html=base.map(ownCard).join('');
+    track.innerHTML=html+html;
+    offset=0; track.style.transform='translateX(0)';
+    requestAnimationFrame(function(){var mark=track.children[count];single=mark?mark.offsetLeft:track.scrollWidth/2;});
+  }
+  function normalize(){ if(single>0){ offset=offset%single; if(offset>0)offset-=single; } }
+  function frame(){
+    if(!paused && !dragging && !reduce && single>0){
+      offset-=SPEED; if(offset<=-single) offset+=single;
+      track.style.transform='translateX('+offset+'px)';
+    }
+    requestAnimationFrame(frame);
+  }
+  vp.addEventListener('mouseenter',function(){paused=true});
+  vp.addEventListener('mouseleave',function(){paused=false});
+  vp.addEventListener('pointerdown',function(e){dragging=true;moved=false;startX=e.clientX;startOff=offset;vp.classList.add('dragging');try{vp.setPointerCapture(e.pointerId)}catch(_){}});
+  vp.addEventListener('pointermove',function(e){if(!dragging)return;var dx=e.clientX-startX;if(Math.abs(dx)>3)moved=true;offset=startOff+dx;track.style.transform='translateX('+offset+'px)';});
+  function endDrag(){ if(dragging){dragging=false;vp.classList.remove('dragging');normalize();} }
+  window.addEventListener('pointerup',endDrag);
+  window.addEventListener('pointercancel',endDrag);
+  vp.addEventListener('click',function(e){ if(moved){e.preventDefault();e.stopPropagation();} },true);
+
+  /* ── cases tile grid ── */
+  var grid=document.getElementById('casegrid');
+  function gridCard(k){
+    var id=(k.img.match(/(\d+)/)||[])[1]||'';
+    return '<a class="gcell" href="cases/case-'+id+'.html"><div class="gcell__img" style="background-image:url(\''+k.img+'\')"></div>'+
+           '<div class="gcell__cap"><div class="gcell__t">'+k.t+'</div><div class="gcell__cat">'+k.cl+'</div></div></a>';
+  }
+  function renderGrid(cat){
+    var list=CASES.filter(function(k){return cat==='all'||k.c===cat});
+    grid.innerHTML=list.map(gridCard).join('');
+  }
+  renderGrid('all');
+  document.querySelectorAll('.tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+      this.classList.add('active');
+      renderGrid(this.dataset.cat);
+    });
+  });
+
+  buildFeed();
+  frame();
+})();
+</script>
+</body>
+</html>
