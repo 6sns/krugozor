@@ -59,7 +59,7 @@ img{display:block;max-width:100%}
 .hdr.solid .hdr__logo{color:var(--ink)}
 .hdr.solid nav a{color:var(--ink);opacity:.7}
 .hdr.solid nav a:hover{color:var(--accent);opacity:1}
-@media(max-width:640px){.hdr nav{gap:14px}.hdr nav a{font-size:13px}}
+.hdr__burger{display:none;position:relative;z-index:2;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;padding:0;background:none;border:0;cursor:pointer;color:#fff}.hdr.solid .hdr__burger{color:var(--ink)}.hdr__burger span{display:block;height:2px;width:24px;background:currentColor;border-radius:2px;transition:transform .35s var(--ease),opacity .3s var(--ease)}@media(max-width:640px){.hdr__burger{display:flex}.hdr nav{position:fixed;left:0;right:0;top:0;z-index:1;flex-direction:column;align-items:flex-start;gap:2px;padding:84px clamp(20px,6vw,40px) 34px;background:var(--base);border-bottom:1px solid var(--hairline);transform:translateY(-106%);transition:transform .42s var(--ease);box-shadow:0 24px 48px -28px rgba(40,58,70,.35)}.hdr.menu-open nav{transform:translateY(0)}.hdr nav a{color:var(--ink);opacity:.82;font-size:21px;font-weight:300;padding:13px 0;width:100%;border-bottom:1px solid var(--hairline)}.hdr nav a:last-child{border-bottom:0}.hdr nav a:hover{opacity:1;color:var(--accent)}.hdr.menu-open .hdr__logo{color:var(--ink)}.hdr.menu-open .hdr__burger{color:var(--ink)}.hdr.menu-open .hdr__burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}.hdr.menu-open .hdr__burger span:nth-child(2){opacity:0}.hdr.menu-open .hdr__burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}}
 
 /* ── HERO ── */
 .hero{position:relative;min-height:100svh;display:flex;overflow:hidden;background:#283a46}
@@ -208,7 +208,7 @@ img{display:block;max-width:100%}
   <a class="hdr__logo" href="#home" aria-label="KRUGOZOR GROUP">
     <svg viewBox="0 0 282 54" role="img" aria-label="KRUGOZOR GROUP"><use href="#krlogo"/></svg>
   </a>
-  <nav aria-label="Основная навигация">
+  <button class="hdr__burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button><nav id="nav" aria-label="Основная навигация">
     <a href="#about">О нас</a>
     <a href="#projects">Проекты</a>
     <a href="#cases">Кейсы</a>
@@ -444,5 +444,5 @@ img{display:block;max-width:100%}
   frame();
 })();
 </script>
-</body>
+<script>(function(){var b=document.getElementById('burger'),h=document.getElementById('hdr'),n=document.getElementById('nav');if(b&&h&&n){b.addEventListener('click',function(){var o=h.classList.toggle('menu-open');b.setAttribute('aria-expanded',o?'true':'false');});n.addEventListener('click',function(e){if(e.target.closest('a')){h.classList.remove('menu-open');b.setAttribute('aria-expanded','false');}});}})();</script></body>
 </html>
