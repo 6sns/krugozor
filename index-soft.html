@@ -424,7 +424,7 @@ img{display:block;max-width:100%}
   var grid=document.getElementById('casegrid');
   function gridCard(k){
     var id=(k.img.match(/(\d+)/)||[])[1]||'';
-    var href=k.u?k.u:'cases/case-'+id+'.html',ext=k.u?' target="_blank" rel="noopener noreferrer"':'';if(k.np&&!k.u){return '<div class="gcell gcell--nolink"><div class="gcell__img" style="background-image:url('+JSON.stringify(k.img)+')"></div><div class="gcell__cap"><div class="gcell__t">'+k.t+'</div><div class="gcell__cat">'+k.cl+'</div></div></div>';}return '<a class="gcell" href="'+href+'"'+ext+'><div class="gcell__img" style="background-image:url(\''+k.img+'\')"></div>'+
+    var href=k.u?k.u:'cases/case-'+id+'.html',ext=k.u?' target="_blank" rel="noopener noreferrer"':'';if(k.np&&!k.u){return '<div class="gcell gcell--nolink"><div class="gcell__img" style="background-image:url(\''+k.img+'\')"></div><div class="gcell__cap"><div class="gcell__t">'+k.t+'</div><div class="gcell__cat">'+k.cl+'</div></div></div>';}return '<a class="gcell" href="'+href+'"'+ext+'><div class="gcell__img" style="background-image:url(\''+k.img+'\')"></div>'+
            '<div class="gcell__cap"><div class="gcell__t">'+k.t+'</div><div class="gcell__cat">'+k.cl+'</div></div></a>';
   }
   function renderGrid(cat){
